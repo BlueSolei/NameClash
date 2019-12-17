@@ -1,0 +1,7 @@
+listing object files in library: 
+    CMD: lib /nologo /list RenameSym_1.lib
+    Example output: RenameSym_1.dir\Debug\Foo1.obj
+
+extracting an object file:
+    lib /nologo /extract:RenameSym_1.dir\Debug\Foo1.obj RenameSym_1.lib
+    Example output: Foo1.obj file created

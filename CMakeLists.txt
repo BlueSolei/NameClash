@@ -13,6 +13,18 @@ conan_cmake_run(CONANFILE conanfile.txt
 
 set(CMAKE_CXX_STANDARD 17)
 
+set(MY_STATIC_LIB_1 ${CMAKE_PROJECT_NAME}_1)
+add_library(${MY_STATIC_LIB_1}
+  src/Foo1.cpp
+  src/Foo.h
+  )
+
+set(MY_STATIC_LIB_2 ${CMAKE_PROJECT_NAME}_2)
+add_library(${MY_STATIC_LIB_2}
+  src/Foo2.cpp
+  src/Foo.h
+  )
+  
 add_executable(${CMAKE_PROJECT_NAME}
   src/Main.cpp
   src/RenameSym.cpp
