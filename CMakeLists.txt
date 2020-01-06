@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.2)
 project(RenameSym)
+set (MY_EXE ${CMAKE_PROJECT_NAME})
 
 if(NOT CMAKE_BUILD_TYPE)
     message(STATUS "Build type is default defined as Release. change it by define -DCMAKE_BUILD_TYPE=Debug as param to cmake")
@@ -13,25 +14,26 @@ conan_cmake_run(CONANFILE conanfile.txt
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(MY_STATIC_LIB_1 ${CMAKE_PROJECT_NAME}_1)
+set(MY_STATIC_LIB_1 ${MY_EXE}_1)
 add_library(${MY_STATIC_LIB_1}
   src/Foo1.cpp
+  src/Bar.cpp
   src/Foo.h
   )
 
-set(MY_STATIC_LIB_2 ${CMAKE_PROJECT_NAME}_2)
+set(MY_STATIC_LIB_2 ${MY_EXE}_2)
 add_library(${MY_STATIC_LIB_2}
   src/Foo2.cpp
   src/Foo.h
   )
   
-add_executable(${CMAKE_PROJECT_NAME}
+add_executable(${MY_EXE}
   src/Main.cpp
   src/RenameSym.cpp
   src/RenameSym.h
   )
 
-target_link_libraries(${CMAKE_PROJECT_NAME} ${CONAN_LIBS})
+target_link_libraries(${MY_EXE} ${MY_STATIC_LIB_2} ${MY_STATIC_LIB_1} ${CONAN_LIBS})
 
 # Tests
 set(TEST_FILES
