@@ -1,6 +1,11 @@
-
+#ifdef __cplusplus
 extern "C"
 {
-    void foo();
+#endif
+
+  void foo();
+
+#ifdef __cplusplus
 }
+#endif
 

@@ -16,17 +16,17 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(MY_STATIC_LIB_1 ${MY_EXE}_1)
 add_library(${MY_STATIC_LIB_1}
-  src/Foo1.cpp
+  src/Foo1.c
   src/Bar.cpp
   src/Foo.h
   )
 
 set(MY_STATIC_LIB_2 ${MY_EXE}_2)
 add_library(${MY_STATIC_LIB_2}
-  src/Foo2.cpp
+  src/Foo2.c
   src/Foo.h
   )
-  
+
 add_executable(${MY_EXE}
   src/Main.cpp
   src/RenameSym.cpp
